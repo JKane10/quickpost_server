@@ -15,6 +15,7 @@ public class QPUtils {
             try {
                 //todo this is failing
                 prop.load(MessagingService.class.getClassLoader().getResourceAsStream(Constants.propertiesFile));
+                rtn = prop.getProperty(propName);
             } catch(IOException ex) {
                 ex.printStackTrace();
             }

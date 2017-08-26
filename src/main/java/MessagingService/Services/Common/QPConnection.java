@@ -22,8 +22,8 @@ public class QPConnection {
         if(instance == null){
             instance = new QPConnection();
             try {
-                client = new MongoClient(new MongoClientURI(QPUtils.getProp(Constants.mongoServerKey)));
-                db = client.getDB(QPUtils.getProp(Constants.mongoDBKey));
+                client = new MongoClient(new MongoClientURI("mongodb://localhost:27017")); //String a = QPUtils.getProp(Constants.mongoServerKey);
+                db = client.getDB("quickpost-dev");//QPUtils.getProp(Constants.mongoDBKey));
             } catch (Exception ex){
                 ex.printStackTrace();
             }
@@ -42,7 +42,7 @@ public class QPConnection {
     }
 
     public List<DBObject> getMessages(){
-        DBCursor cursor = db.getCollection("message").find();
+        DBCursor cursor = db.getCollection("messages").find();
         return cursor.toArray();
     }
 }
