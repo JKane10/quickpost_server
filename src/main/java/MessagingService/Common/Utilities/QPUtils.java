@@ -7,12 +7,13 @@ import java.util.Properties;
 
 public class QPUtils {
 
-    public static Properties prop;
+    private static Properties prop;
 
     public static String getProp(String propName){
         String rtn = null;
         if(prop == null){
             try {
+                //todo this is failing
                 prop.load(MessagingService.class.getClassLoader().getResourceAsStream(Constants.propertiesFile));
             } catch(IOException ex) {
                 ex.printStackTrace();
