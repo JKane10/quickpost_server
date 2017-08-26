@@ -1,28 +1,40 @@
 package MessagingService.Models;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class Message {
 
-    private String id;
+    private int id;
 
     private String msg;
 
     private String user;
 
-    private String timeStamp;
+    private String sentTimeStamp;
+
+    private String receivedTimeStamp;
 
     public Message(){
 
     }
 
     public Message(String msg, String user, String timeStamp){
+        this.id = 0;
         this.msg = msg;
         this.user = user;
-        this.timeStamp = timeStamp;
+        this.sentTimeStamp = timeStamp;
+        //todo this doesn't seem to work
+        this.receivedTimeStamp = LocalDateTime.now().toString();
     }
 
     /**
      * GETTERS
      **/
+
+    public int getId() {
+        return id;
+    }
 
     public String getMsg() {
         return msg;
@@ -32,13 +44,21 @@ public class Message {
         return user;
     }
 
-    public String getTimeStamp() {
-        return timeStamp;
+    public String getSentTimeStamp() {
+        return sentTimeStamp;
+    }
+
+    public String getReceivedTimeStamp() {
+        return receivedTimeStamp;
     }
 
     /**
-     * GETTERS
+     * SETTERS
      **/
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setMsg(String msg) {
         this.msg = msg;
@@ -48,7 +68,11 @@ public class Message {
         this.user = user;
     }
 
-    public void setTimeStamp(String timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setSentTimeStamp(String sentTimeStamp) {
+        this.sentTimeStamp = sentTimeStamp;
+    }
+
+    public void setReceivedTimeStamp(String receivedTimeStamp) {
+        this.receivedTimeStamp = receivedTimeStamp;
     }
 }
