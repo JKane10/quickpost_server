@@ -1,5 +1,7 @@
 package MessagingService.Models;
 
+import com.mongodb.BasicDBObject;
+
 import java.time.LocalDateTime;
 import java.util.Date;
 

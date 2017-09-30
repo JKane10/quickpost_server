@@ -2,12 +2,12 @@ package MessagingService.Controllers;
 
 import MessagingService.Models.Message;
 import MessagingService.Services.Common.QPConnection;
-import com.mongodb.DBObject;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class MessagingController extends BaseController {
@@ -20,8 +20,7 @@ public class MessagingController extends BaseController {
     }
 
     @RequestMapping("/getMessages")
-    public List<DBObject> getMessages(){
-        return QPConnection.getInstance().getMessages();
-        //return new ArrayList<Message>();//todo place holder
+    public String getMessages(){
+        return QPConnection.getInstance().getMessages().toString();
     }
 }
